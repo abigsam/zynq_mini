@@ -57,7 +57,8 @@ if {${build_type} == "create_bd"} {
     create_bd ${board_path}
 } else {
     #HDL design
-    
+    add_files -norecurse ${board_path}/zynq_mini_rtl.sv
+    update_compile_order -fileset sources_1
 }
 
 #Create xcleanup.bat file
