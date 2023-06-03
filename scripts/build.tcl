@@ -18,10 +18,11 @@ set script_path     [file dirname [file normalize [info script]]]
 #Get configuration from script parameters
 set board_name      [read_param 0 "zynq_mini_7020"]
 set build_type      [read_param 1 "create_bd"]
+set prj_folder_name [read_param 2 "vivado_bd"]
 set prj_name        ${board_name}
 
 #Configure project
-set prj_path        [file normalize ${script_path}/../vivado]
+set prj_path        [file normalize ${script_path}/../${prj_folder_name}]
 set board_path      [file normalize ${script_path}/../board/${board_name}]
 set ip_repo_path    [file normalize ${script_path}/../ip_repo]
 
@@ -56,7 +57,7 @@ if {${build_type} == "create_bd"} {
     create_bd ${board_path}
 } else {
     #HDL design
-
+    
 }
 
 #Create xcleanup.bat file

@@ -10,7 +10,7 @@ ECHO #########################################################
 set vivado_path=C:\Xilinx\Vivado\2022.1
 set build_type="create_bd"
 set board_name="zynq_mini_7020"
-set project_folder_name="vivado"
+set project_folder_name="vivado_bd"
 ECHO.
 ECHO Avaliable options:
 ECHO [1] Build Block design project
@@ -38,7 +38,8 @@ rmdir /s /q "%~dp0\.Xil"
 goto END
 
 :RUN_BUILD_RTL
-set build_type="create_hdl"
+set build_type="create_rtl"
+set project_folder_name="vivado_rtl"
 :RUN_BUILD_BD
 rem Run Vivado batch file with Tcl build script
 rem Tcl script has two arguments:
@@ -46,7 +47,7 @@ rem - run Vivado GUI
 rem - use derictive "exit" at Tcl script
 rem After this, batch file changes run directory to the vivado project ("vivado/" by default) and call for Vivado with GUI
 ECHO Run Tcl build script...
-CALL :RUN_VIVADO_SCRIPT "%~dp0\scripts\build.tcl" %board_name% %build_type%
+CALL :RUN_VIVADO_SCRIPT "%~dp0\scripts\build.tcl" %board_name% %build_type% %project_folder_name%
 CALL :OPEN_VIVADO_PROJECT %project_folder_name% %board_name%
 goto RUN_CLEANUP
 
