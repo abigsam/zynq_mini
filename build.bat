@@ -27,7 +27,8 @@ IF ERRORLEVEL 1 GOTO RUN_BUILD_BD
 
 :RUN_CLEANUP_PRJ
 ECHO Cleanup project folder...
-rmdir /s /q "%~dp0\vivado"
+rmdir /s /q "%~dp0\vivado_bd"
+rmdir /s /q "%~dp0\vivado_rtl"
 del "%~dp0\*.log"
 
 :RUN_CLEANUP
