@@ -5,9 +5,9 @@ ECHO #########################################################
 ECHO # Build Vivado project for Zynq Mini 7020
 ECHO # Part: XC7Z020CLG400-1
 ECHO # Author: abigsam@gmail.com
-ECHO # Vivado version: 2022.1
+ECHO # Vivado version: 2023.1
 ECHO #########################################################
-set vivado_path=C:\Xilinx\Vivado\2022.1
+set vivado_path=C:\Xilinx\Vivado\2023.1
 set build_type="create_bd"
 set board_name="zynq_mini_7020"
 set project_folder_name="vivado_bd"
